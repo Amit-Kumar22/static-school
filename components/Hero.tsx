@@ -120,6 +120,7 @@ const Hero = () => {
                   src="/circle.jpg"
                   alt="Bright Future International School"
                   fill
+                  sizes="(max-width: 768px) 200px, 300px"
                   className="object-cover"
                   priority
                 />

@@ -159,31 +159,31 @@ const Gallery = () => {
   }
 
   return (
-    <section id="gallery" className="py-6 sm:py-8 lg:py-10 bg-gradient-to-b from-gray-50 to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="gallery" className="py-4 sm:py-5 md:py-6 lg:py-7 bg-gradient-to-b from-gray-50 to-white">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={containerVariants}
-          className="text-center mb-6 sm:mb-8"
+          className="text-center mb-3 sm:mb-4 md:mb-5"
         >
           <motion.h2
             variants={itemVariants}
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-3"
+            className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1.5 sm:mb-2"
           >
             Gallery
           </motion.h2>
           <motion.div
             variants={itemVariants}
-            className="w-20 h-1 bg-gradient-to-r from-orange-500 to-red-500 mx-auto mb-4 rounded-full"
+            className="w-12 sm:w-14 md:w-16 h-0.5 bg-gradient-to-r from-orange-500 to-red-500 mx-auto mb-1.5 sm:mb-2 rounded-full"
           />
           <motion.p
             variants={itemVariants}
-            className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto"
+            className="text-[10px] sm:text-xs md:text-sm text-gray-600 max-w-2xl mx-auto px-2"
           >
-            Explore the vibrant moments and achievements that define our school community
+            Explore the vibrant moments and achievements
           </motion.p>
         </motion.div>
 
@@ -193,17 +193,17 @@ const Gallery = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
           variants={containerVariants}
-          className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-6 sm:mb-8"
+          className="flex flex-wrap justify-center gap-1 sm:gap-1.5 md:gap-2 mb-3 sm:mb-4 md:mb-5"
         >
           {categories.map((category) => (
             <motion.button
               key={category}
               variants={buttonVariants}
               animate={activeFilter === category ? 'active' : 'inactive'}
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setActiveFilter(category)}
-              className="px-3 py-1 sm:px-4 sm:py-1.5 rounded-full font-medium text-xs sm:text-sm transition-all duration-300 shadow-md hover:shadow-lg border-2 border-transparent"
+              className="px-2 py-0.5 sm:px-2.5 sm:py-1 md:px-3 md:py-1 rounded-full font-medium text-[10px] sm:text-xs md:text-sm transition-all duration-300 shadow-sm hover:shadow-md border border-transparent"
               style={{
                 backgroundColor: activeFilter === category ? '#F97316' : '#374151',
                 color: activeFilter === category ? '#FFFFFF' : '#9CA3AF',
@@ -223,26 +223,27 @@ const Gallery = () => {
             animate="visible"
             exit="hidden"
             variants={containerVariants}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-5"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-2 sm:gap-2.5 md:gap-3"
           >
             {filteredImages.map((image, index) => (
               <motion.div
                 key={`${activeFilter}-${image.title}-${index}`}
                 variants={itemVariants}
-                whileHover={{ y: -10 }}
-                className="group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-500 bg-white"
+                whileHover={{ y: -5 }}
+                className="group relative overflow-hidden rounded-md shadow-sm hover:shadow-md transition-all duration-300 bg-white"
               >
-                <div className="relative h-40 sm:h-44 lg:h-48">
+                <div className="relative h-32 xs:h-36 sm:h-40 md:h-44 lg:h-48">
                   <Image
                     src={image.src}
                     alt={image.title}
                     fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover transition-all duration-700 group-hover:scale-110"
                   />
                   
                   {/* Category Badge */}
-                  <div className="absolute top-3 left-3 z-10">
-                    <span className="bg-orange-500 text-white px-2 py-0.5 rounded-full text-xs font-semibold shadow-md">
+                  <div className="absolute top-1.5 sm:top-2 left-1.5 sm:left-2 z-10">
+                    <span className="bg-orange-500 text-white px-1.5 sm:px-2 py-0.5 rounded-full text-[9px] sm:text-[10px] md:text-xs font-semibold shadow-sm">
                       {image.category}
                     </span>
                   </div>
@@ -251,18 +252,18 @@ const Gallery = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   {/* Content Overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                    <h3 className="text-base sm:text-lg font-bold mb-1">{image.title}</h3>
-                    <p className="text-sm text-gray-200 leading-relaxed">
+                  <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-2.5 md:p-3 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    <h3 className="text-xs sm:text-sm md:text-base font-bold mb-0.5">{image.title}</h3>
+                    <p className="text-[9px] sm:text-[10px] md:text-xs text-gray-200 leading-tight line-clamp-2">
                       {image.description}
                     </p>
                   </div>
 
                   {/* View Icon */}
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
                       <svg 
-                        className="w-6 h-6 text-white" 
+                        className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" 
                         fill="none" 
                         stroke="currentColor" 
                         viewBox="0 0 24 24"
@@ -294,23 +295,23 @@ const Gallery = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={containerVariants}
-          className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 mt-12 sm:mt-16"
+          className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 md:gap-4 mt-4 sm:mt-5 md:mt-6"
         >
           <motion.div variants={itemVariants} className="text-center">
-            <div className="text-2xl sm:text-3xl font-bold text-orange-500 mb-2">500+</div>
-            <div className="text-sm sm:text-base text-gray-600">Photos</div>
+            <div className="text-lg sm:text-xl md:text-2xl font-bold text-orange-500 mb-0.5 sm:mb-1">500+</div>
+            <div className="text-[10px] sm:text-xs md:text-sm text-gray-600">Photos</div>
           </motion.div>
           <motion.div variants={itemVariants} className="text-center">
-            <div className="text-2xl sm:text-3xl font-bold text-orange-500 mb-2">50+</div>
-            <div className="text-sm sm:text-base text-gray-600">Events</div>
+            <div className="text-lg sm:text-xl md:text-2xl font-bold text-orange-500 mb-0.5 sm:mb-1">50+</div>
+            <div className="text-[10px] sm:text-xs md:text-sm text-gray-600">Events</div>
           </motion.div>
           <motion.div variants={itemVariants} className="text-center">
-            <div className="text-2xl sm:text-3xl font-bold text-orange-500 mb-2">25+</div>
-            <div className="text-sm sm:text-base text-gray-600">Activities</div>
+            <div className="text-lg sm:text-xl md:text-2xl font-bold text-orange-500 mb-0.5 sm:mb-1">25+</div>
+            <div className="text-[10px] sm:text-xs md:text-sm text-gray-600">Activities</div>
           </motion.div>
           <motion.div variants={itemVariants} className="text-center">
-            <div className="text-2xl sm:text-3xl font-bold text-orange-500 mb-2">12+</div>
-            <div className="text-sm sm:text-base text-gray-600">Years</div>
+            <div className="text-lg sm:text-xl md:text-2xl font-bold text-orange-500 mb-0.5 sm:mb-1">12+</div>
+            <div className="text-[10px] sm:text-xs md:text-sm text-gray-600">Years</div>
           </motion.div>
         </motion.div>
       </div>
