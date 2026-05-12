@@ -42,7 +42,7 @@ const NavbarTemp = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-14">
+        <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
               <span className="text-white font-bold text-sm">BF</span>
@@ -52,7 +52,7 @@ const NavbarTemp = () => {
               <p className="text-xs text-gray-600 hidden sm:block">International School</p>
             </div>
           </div>
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center space-x-6">
             {menuItems.map((item) => (
               <button
                 key={item.id}
@@ -85,7 +85,7 @@ const NavbarTemp = () => {
             exit={{ opacity: 0, height: 0 }}
             className="lg:hidden bg-white/95 backdrop-blur-md shadow-lg"
           >
-            <div className="px-4 py-3 space-y-2">
+            <div className="px-4 py-6 space-y-4">
               {menuItems.map((item) => (
                 <button
                   key={item.id}

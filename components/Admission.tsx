@@ -60,11 +60,7 @@ const Admission = () => {
     hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
+      y: 0
     }
   }
 
@@ -72,16 +68,12 @@ const Admission = () => {
     hidden: { opacity: 0, scale: 0.8 },
     visible: {
       opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut"
-      }
+      scale: 1
     }
   }
 
   return (
-    <section id="admission" className="py-8 sm:py-12 lg:py-16 bg-gradient-to-b from-gray-50 to-white text-gray-800 relative overflow-hidden">
+    <section id="admission" className="py-6 sm:py-8 lg:py-10 bg-gradient-to-b from-gray-50 to-white text-gray-800 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-100/20 via-transparent to-transparent" />
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-200/50 to-transparent" />
@@ -93,11 +85,11 @@ const Admission = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={containerVariants}
-          className="text-center mb-8 sm:mb-12"
+          className="text-center mb-6 sm:mb-8"
         >
           <motion.div
             variants={itemVariants}
-            className="inline-block mb-3"
+            className="inline-block mb-2"
           >
             <span className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase shadow-lg">
               ADMISSIONS
@@ -106,14 +98,14 @@ const Admission = () => {
           
           <motion.h2
             variants={itemVariants}
-            className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-gray-800"
+            className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 text-gray-800"
           >
             Begin Your Journey
           </motion.h2>
           
           <motion.p
             variants={itemVariants}
-            className="text-base text-gray-600 max-w-2xl mx-auto leading-relaxed"
+            className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed"
           >
             Join our community of learners and unlock your potential. Our streamlined admission process ensures a smooth transition into academic excellence.
           </motion.p>
@@ -133,7 +125,7 @@ const Admission = () => {
           {/* Timeline Line - Mobile */}
           <div className="xl:hidden absolute left-6 sm:left-7 lg:left-6 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gray-300/50 to-transparent" />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-5 md:gap-4 lg:gap-3 xl:gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4 md:gap-3 lg:gap-2 xl:gap-3">
             {admissionSteps.map((step, index) => (
               <motion.div
                 key={step.step}
@@ -143,21 +135,21 @@ const Admission = () => {
               >
                 {/* Timeline Dot */}
                 <div className="relative z-10 flex-shrink-0">
-                  <div className={`w-12 h-12 sm:w-14 sm:h-14 lg:w-12 lg:h-12 rounded-full bg-gradient-to-br ${step.color} p-0.5 shadow-lg`}>
+                  <div className={`w-10 h-10 sm:w-12 sm:h-12 lg:w-10 lg:h-10 rounded-full bg-gradient-to-br ${step.color} p-0.5 shadow-md`}>
                     <div className="w-full h-full rounded-full bg-white flex items-center justify-center border-2 border-gray-100">
-                      <span className="text-base sm:text-lg lg:text-base">{step.icon}</span>
+                      <span className="text-sm sm:text-base lg:text-sm">{step.icon}</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Content Card */}
-                <div className={`ml-4 lg:ml-0 lg:mt-4 w-full bg-white/80 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-gray-200/50 shadow-md hover:shadow-lg transition-all duration-300 flex-1 lg:flex-none`}>
+                <div className={`ml-3 lg:ml-0 lg:mt-3 w-full bg-white/80 backdrop-blur-sm rounded-lg p-2 sm:p-3 border border-gray-200/50 shadow-md hover:shadow-lg transition-all duration-300 flex-1 lg:flex-none`}>
                   <div className="text-left lg:text-center">
-                    <div className={`inline-block bg-gradient-to-r ${step.color} text-white px-2 py-1 rounded-full text-xs font-semibold mb-2`}>
+                    <div className={`inline-block bg-gradient-to-r ${step.color} text-white px-2 py-0.5 rounded-full text-xs font-semibold mb-1`}>
                       {step.step}
                     </div>
                     
-                    <h3 className="text-sm sm:text-base lg:text-sm font-bold mb-2 text-gray-800">
+                    <h3 className="text-xs sm:text-sm lg:text-xs font-bold mb-1 text-gray-800">
                       {step.title}
                     </h3>
                     
@@ -182,16 +174,16 @@ const Admission = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={containerVariants}
-          className="text-center mt-8 sm:mt-12"
+          className="text-center mt-6 sm:mt-8"
         >
           <motion.div
             variants={itemVariants}
-            className="inline-flex flex-col sm:flex-row gap-3"
+            className="inline-flex flex-col sm:flex-row gap-2"
           >
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold px-6 py-3 rounded-full text-sm transition-all duration-300 shadow-lg hover:shadow-orange-500/25"
+              className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold px-4 py-2 rounded-full text-sm transition-all duration-300 shadow-md hover:shadow-orange-500/25"
             >
               Start Application
             </motion.button>
@@ -199,7 +191,7 @@ const Admission = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="border-2 border-gray-300 hover:border-orange-500 text-gray-700 hover:text-orange-500 font-semibold px-6 py-3 rounded-full text-sm transition-all duration-300 bg-white"
+              className="border-2 border-gray-300 hover:border-orange-500 text-gray-700 hover:text-orange-500 font-semibold px-4 py-2 rounded-full text-sm transition-all duration-300 bg-white"
             >
               Download Brochure
             </motion.button>
@@ -207,18 +199,18 @@ const Admission = () => {
 
           <motion.div
             variants={itemVariants}
-            className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-lg mx-auto"
+            className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-lg mx-auto"
           >
             <div className="text-center">
-              <div className="text-xl font-bold text-orange-500 mb-1">100%</div>
+              <div className="text-lg font-bold text-orange-500 mb-0.5">100%</div>
               <div className="text-xs text-gray-500">Success Rate</div>
             </div>
             <div className="text-center">
-              <div className="text-xl font-bold text-orange-500 mb-1">24/7</div>
+              <div className="text-lg font-bold text-orange-500 mb-0.5">24/7</div>
               <div className="text-xs text-gray-500">Support</div>
             </div>
             <div className="text-center">
-              <div className="text-xl font-bold text-orange-500 mb-1">3-5</div>
+              <div className="text-lg font-bold text-orange-500 mb-0.5">3-5</div>
               <div className="text-xs text-gray-500">Working Days</div>
             </div>
           </motion.div>

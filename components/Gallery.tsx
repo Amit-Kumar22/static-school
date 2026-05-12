@@ -92,19 +92,19 @@ const Gallery = () => {
 
     // Independence Day
     {
-      src: 'https://images.unsplash.com/photo-1587020309816-2b08db4ec9a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+      src: 'https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
       title: 'Flag Hoisting Ceremony',
       description: 'Principal hoisting the national flag with students in assembly',
       category: 'Independence Day'
     },
     {
-      src: 'https://images.unsplash.com/photo-1525935644381-b021e5049632?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+      src: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
       title: 'Patriotic March Past',
       description: 'Students in uniform marching with national pride',
       category: 'Independence Day'
     },
     {
-      src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+      src: 'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
       title: 'Cultural Program',
       description: 'Patriotic songs and dance celebrating freedom fighters',
       category: 'Independence Day'
@@ -159,7 +159,7 @@ const Gallery = () => {
   }
 
   return (
-    <section id="gallery" className="py-8 sm:py-12 lg:py-16 bg-gradient-to-b from-gray-50 to-white">
+    <section id="gallery" className="py-6 sm:py-8 lg:py-10 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -167,21 +167,21 @@ const Gallery = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={containerVariants}
-          className="text-center mb-8 sm:mb-12"
+          className="text-center mb-6 sm:mb-8"
         >
           <motion.h2
             variants={itemVariants}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-4"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-3"
           >
             Gallery
           </motion.h2>
           <motion.div
             variants={itemVariants}
-            className="w-24 h-1 bg-gradient-to-r from-orange-500 to-red-500 mx-auto mb-6 rounded-full"
+            className="w-20 h-1 bg-gradient-to-r from-orange-500 to-red-500 mx-auto mb-4 rounded-full"
           />
           <motion.p
             variants={itemVariants}
-            className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto"
+            className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto"
           >
             Explore the vibrant moments and achievements that define our school community
           </motion.p>
@@ -193,7 +193,7 @@ const Gallery = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
           variants={containerVariants}
-          className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12"
+          className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-6 sm:mb-8"
         >
           {categories.map((category) => (
             <motion.button
@@ -203,7 +203,7 @@ const Gallery = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setActiveFilter(category)}
-              className="px-3 py-1 sm:px-4 sm:py-2 rounded-full font-medium text-sm transition-all duration-300 shadow-lg hover:shadow-xl border-2 border-transparent"
+              className="px-3 py-1 sm:px-4 sm:py-1.5 rounded-full font-medium text-xs sm:text-sm transition-all duration-300 shadow-md hover:shadow-lg border-2 border-transparent"
               style={{
                 backgroundColor: activeFilter === category ? '#F97316' : '#374151',
                 color: activeFilter === category ? '#FFFFFF' : '#9CA3AF',
@@ -223,16 +223,16 @@ const Gallery = () => {
             animate="visible"
             exit="hidden"
             variants={containerVariants}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-5"
           >
             {filteredImages.map((image, index) => (
               <motion.div
                 key={`${activeFilter}-${image.title}-${index}`}
                 variants={itemVariants}
                 whileHover={{ y: -10 }}
-                className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 bg-white"
+                className="group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-500 bg-white"
               >
-                <div className="relative h-48 sm:h-52 lg:h-56">
+                <div className="relative h-40 sm:h-44 lg:h-48">
                   <Image
                     src={image.src}
                     alt={image.title}
@@ -241,8 +241,8 @@ const Gallery = () => {
                   />
                   
                   {/* Category Badge */}
-                  <div className="absolute top-4 left-4 z-10">
-                    <span className="bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
+                  <div className="absolute top-3 left-3 z-10">
+                    <span className="bg-orange-500 text-white px-2 py-0.5 rounded-full text-xs font-semibold shadow-md">
                       {image.category}
                     </span>
                   </div>
@@ -251,8 +251,8 @@ const Gallery = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   {/* Content Overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                    <h3 className="text-lg sm:text-xl font-bold mb-2">{image.title}</h3>
+                  <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                    <h3 className="text-base sm:text-lg font-bold mb-1">{image.title}</h3>
                     <p className="text-sm text-gray-200 leading-relaxed">
                       {image.description}
                     </p>
@@ -260,9 +260,9 @@ const Gallery = () => {
 
                   {/* View Icon */}
                   <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                    <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
                       <svg 
-                        className="w-8 h-8 text-white" 
+                        className="w-6 h-6 text-white" 
                         fill="none" 
                         stroke="currentColor" 
                         viewBox="0 0 24 24"

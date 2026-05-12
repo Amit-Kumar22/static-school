@@ -61,28 +61,28 @@ const Address = () => {
   }
 
   return (
-    <section id="address" className="py-8 sm:py-12 lg:py-16 bg-gradient-to-b from-gray-50 to-white">
+    <section id="address" className="py-6 sm:py-8 lg:py-10 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={containerVariants}
-          className="text-center mb-8 sm:mb-12"
+          className="text-center mb-6 sm:mb-8"
         >
           <motion.h2
             variants={itemVariants}
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-3 sm:mb-4"
+            className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-2 sm:mb-3"
           >
             Visit Our Branches
           </motion.h2>
           <motion.div
             variants={itemVariants}
-            className="w-20 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"
+            className="w-16 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-4"
           />
           <motion.p
             variants={itemVariants}
-            className="text-sm sm:text-base md:text-lg text-gray-600 max-w-xs sm:max-w-2xl lg:max-w-3xl mx-auto px-2"
+            className="text-xs sm:text-sm md:text-base text-gray-600 max-w-xs sm:max-w-xl lg:max-w-2xl mx-auto px-2"
           >
             We have three conveniently located branches across Patna. 
             Visit us to experience our world-class facilities and meet our dedicated team.
@@ -94,7 +94,7 @@ const Address = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={containerVariants}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-6 sm:mb-8"
         >
           {branches.map((branch, index) => (
             <motion.div
@@ -104,7 +104,7 @@ const Address = () => {
                 scale: 1.02,
                 boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
               }}
-              className={`relative bg-white rounded-xl p-4 sm:p-6 shadow-md hover:shadow-lg transition-all duration-300 border-2 sm:col-span-1 lg:col-span-1 ${
+              className={`relative bg-white rounded-xl p-3 sm:p-4 shadow-md hover:shadow-lg transition-all duration-300 border-2 sm:col-span-1 lg:col-span-1 ${
                 branch.isMain ? 'border-blue-200 bg-gradient-to-br from-blue-50 to-purple-50' : 'border-gray-100'
               }`}
             >
@@ -116,23 +116,23 @@ const Address = () => {
                 </div>
               )}
 
-              <div className="text-center mb-3 sm:mb-4">
+              <div className="text-center mb-2 sm:mb-3">
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
-                  className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center mb-2 sm:mb-3 mx-auto"
+                  className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center mb-1 sm:mb-2 mx-auto"
                 >
-                  <MapPinIcon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                  <MapPinIcon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </motion.div>
-                <h3 className="text-base sm:text-lg lg:text-xl font-bold text-gray-800 mb-1">
+                <h3 className="text-sm sm:text-base lg:text-lg font-bold text-gray-800 mb-1">
                   {branch.name}
                 </h3>
-                <p className="text-sm sm:text-base font-semibold text-blue-600">
+                <p className="text-xs sm:text-sm font-semibold text-blue-600">
                   {branch.location}, Patna
                 </p>
               </div>
 
-              <div className="space-y-2 sm:space-y-3">
-                <div className="flex items-start space-x-2 sm:space-x-3">
+              <div className="space-y-1.5 sm:space-y-2">
+                <div className="flex items-start space-x-2">
                   <MapPinIcon className="w-4 h-4 sm:w-5 sm:h-5 text-gray-500 mt-1 flex-shrink-0" />
                   <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
                     {branch.address}
@@ -170,7 +170,7 @@ const Address = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className={`w-full mt-3 sm:mt-4 py-1.5 sm:py-2 rounded-full font-semibold text-xs sm:text-sm transition-all duration-300 ${
+                className={`w-full mt-2 sm:mt-3 py-1.5 rounded-full font-semibold text-xs transition-all duration-300 ${
                   branch.isMain
                     ? 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg'
                     : 'border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white'
